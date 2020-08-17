@@ -83,7 +83,7 @@ qwertyDiv.addEventListener('click', e => {
         const letter = thisKeyElement.textContent;
 
         // Clicked keys are already disabled, so no need to check
-        thisKeyElement.classList += 'chosen';
+        thisKeyElement.className += ' chosen';
         thisKeyElement.disabled = true;
 
         // Get guessing result
@@ -95,6 +95,7 @@ qwertyDiv.addEventListener('click', e => {
         } else {
             // If there's no match:
             missed += 1;
+            thisKeyElement.className += ' wrong';
             removeTry();
             checkWin();
         }
@@ -173,6 +174,7 @@ function checkWin() {
 
     if (numLetter === numLetterShown) {
         // win
+        removeOverlayMsg();
         overlay.className = 'win';
         btnReset.textContent = 'Try Again';
         overlay.insertBefore(winMsg, overlay.children[1]);

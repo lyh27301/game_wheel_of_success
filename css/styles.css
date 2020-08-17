@@ -95,7 +95,7 @@ button {
 .show {
   color: #000;
   background-color: #76CE82;
-  transition: all .3s ease-in-out;
+  transition: var(--transition);
 }
 
 /* Keyboard */
@@ -110,6 +110,10 @@ button {
   border-radius: 5px;
   font-size: var(--font-size-medium);
   color: #FFFFFF;
+}
+
+.wrong {
+  background-color: var(--color-lose);
 }
 
 .btn__reset {
@@ -135,6 +139,21 @@ button {
   border-radius: 5px;
 }
 
+#overlay * {
+  font-family: 'Open Sans', sans-serif;
+}
+
+#overlay p {
+  font-size: 2rem;
+}
+
+#overlay a {
+  height: 3rem;
+  padding: 10px 10px 5px;
+  letter-spacing: .12rem;
+  font-weight: 300;
+}
+
 .title {
   color: #FFF;
 }
@@ -144,7 +163,10 @@ button {
 }
 
 .start a {
-  color: var(--color-win);
+  /* color: var(--color-win); */
+  background-color: orange;
+  color: white;
+  box-shadow: 3px 3px #9b8453;
 }
 
 .win {
@@ -161,4 +183,5 @@ button {
 
 .lose a {
   color: var(--color-lose);
+  box-shadow: 3px 3px #cec9be;
 }

@@ -22,8 +22,10 @@ const keyRows = Array.from(qwertyDiv.children);
 const keyElements = [];
 keyRows.forEach(keyRow => {
     const keysOfRow = Array.from(keyRow.children);
-    keyElements.push(...keysOfRow);
-
+    keysOfRow.forEach(keyElement => {
+        keyElement.id = `key_${keyElement.textContent}`
+        keyElements.push(keyElement);
+    });
 });
 
 // Get reset button.
@@ -76,11 +78,28 @@ btnReset.addEventListener('click', (e) => {
 
 })
 
-// Add an event listener to the keyboard.
+// Add an event listener to the qwerty.
 qwertyDiv.addEventListener('click', e => {
     if (e.target.tagName === 'BUTTON') {
         const thisKeyElement = e.target;
-        const letter = thisKeyElement.textContent;
+        guess(thisKeyElement);
+    }
+});
+
+// Enable keybord to make guess
+document.addEventListener('keydown', e => {
+    if(e.key.charCodeAt(0) >= 97 && e.key.charCodeAt(0) <= 122) {
+        // Get the related key of the qwerty
+        const thisKeyElement = document.getElementById(`key_${e.key}`);
+        if(!thisKeyElement.disabled){
+            // Check if the qwerty key is disabled.
+            guess(thisKeyElement);
+        }
+    }
+})
+
+function guess(thisKeyElement) {
+    const letter = thisKeyElement.textContent;
 
         // Clicked keys are already disabled, so no need to check
         thisKeyElement.className += ' chosen';
@@ -99,8 +118,7 @@ qwertyDiv.addEventListener('click', e => {
             removeTry();
             checkWin();
         }
-    }
-});
+}
 
 
 

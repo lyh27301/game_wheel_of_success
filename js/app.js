@@ -166,7 +166,7 @@ function checkWin() {
         // lose
         removeOverlayMsg();
         overlay.className = 'lose';
-        overlay.children[1].textContent = 'Try Again';
+        btnReset.textContent = 'Try Again';
         overlay.insertBefore(loseMsg, overlay.children[1]);
         overlay.style.display = '';
     }
@@ -174,7 +174,7 @@ function checkWin() {
     if (numLetter === numLetterShown) {
         // win
         overlay.className = 'win';
-        overlay.children[1].textContent = 'Try Again';
+        btnReset.textContent = 'Try Again';
         overlay.insertBefore(winMsg, overlay.children[1]);
         overlay.style.display = '';
     }
@@ -196,7 +196,7 @@ function removeTry() {
  * Remove existing messages before showing a new overlay.
  */
 function removeOverlayMsg() {
-    const msg = overlay.getElementsByTagName[0];
+    const msg = overlay.getElementsByTagName('p')[0];
     if (msg) {
         overlay.removeChild(msg);
     }

@@ -1,6 +1,6 @@
 /* Main styles */
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700&Roboto:300');
 
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700&Roboto:300');
 /* Variables */
 
 :root {
@@ -22,6 +22,7 @@
   box-sizing: border-box;
 }
 
+
 body {
   justify-content: space-evenly;
   flex-direction: column;
@@ -41,6 +42,40 @@ h2 {
   font-size: var(--font-size-large);
   margin: 0;
 }
+
+/* Hint */
+
+#hint {
+  position: absolute;
+  top: 1.5vw;
+  right: 1vw;
+  display: inline;
+}
+
+#hint img {
+  right: .5vw;
+  position: absolute;
+  height: 40px;
+  width: 40px;
+}
+
+#hint p {
+  background-color: rgb(248, 248, 155);
+  border-radius: 10px;
+  font-weight: 600;
+  padding: 8px 10px;
+  min-width: 200px;
+  position: absolute;
+  top: 1.5vw;
+  right: 1vw;
+  font-family: 'Open Sans', sans-serif;
+  right: 50px;
+  color: var(--color-neutral);
+  font-size: large;
+  display: none;
+}
+
+
 
 button {
   margin: 6px;
@@ -77,6 +112,11 @@ button {
 
 /* Phrase */
 
+#phrase {
+  display: inline;
+  margin: 0 auto;
+}
+
 .letter {
   font-size: var(--font-size-medium);
   height: 65px;
@@ -97,6 +137,7 @@ button {
   background-color: #76CE82;
   transition: var(--transition);
 }
+
 
 /* Keyboard */
 
@@ -137,6 +178,7 @@ button {
   left: 0;
   right: 0;
   border-radius: 5px;
+  z-index: 1;
 }
 
 #overlay * {

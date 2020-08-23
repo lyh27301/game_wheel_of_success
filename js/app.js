@@ -34,13 +34,21 @@ const btnReset = document.getElementsByClassName('btn__reset')[0];
 // Get start overlay.
 const overlay = document.getElementById('overlay');
 
+// Get hint
+const hint = document.getElementById('hint');
+
 // Initialize a phrase array.
 const phrases = [
-    "hello world",
-    "happy coding",
-    "good morning",
-    "yes ok",
-    "are you sure",
+    "the show must go on",
+    "love of my life",
+    "under pressure",
+    "fat bottomed girls",
+    "we will rock you",
+    "bohemian rhapsody",
+    "we are the champions",
+    "a kind of magic",
+    "one vision",
+    "five live up", 
 ]
 
 // Initialize a counter of missed times.
@@ -119,6 +127,15 @@ function guess(thisKeyElement) {
             checkWin();
         }
 }
+
+hint.addEventListener('click', e => {
+    const p = hint.children[1];
+    if(p.style.display === 'block') {
+        p.style.display = 'none';
+    }else {
+        p.style.display = 'block';
+    }
+});
 
 
 
